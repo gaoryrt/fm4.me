@@ -105,12 +105,12 @@ h4 {
     data() {
       return {
         paused: true,
-        audio: new Audio(this.src)
+        audio: null
       }
     },
     components: {},
     mounted() {
-      console.log(this.audio)
+      this.audio = new Audio(this.src)
       this.$nextTick(() => {
         this.audio.addEventListener('timeupdate', this.update)
       })
