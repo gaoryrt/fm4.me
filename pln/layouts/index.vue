@@ -8,10 +8,10 @@
       </defs>
     </svg>
     <div class="center">
-      <h1 class="pln-title">thejungle</h1>
+      <h1 class="pln-title">theJungle</h1>
       <nav class="pln-meta">
-        <saber-link to="/about">about</saber-link>
-        <saber-link to="/archive">archive</saber-link>
+        <saber-link to="/about">关于</saber-link>
+        <saber-link to="/archive">存档</saber-link>
       </nav>
       <div v-if="page.posts">
         <div v-for="post in page.posts"
@@ -104,6 +104,9 @@ export default {
   }
   .post-meta, .post-excerpt {
     width: 47.62%;
+  }
+  .pln-meta a {
+    color: #282828
   }
   @media screen and (max-width: 800px) {
     .article {

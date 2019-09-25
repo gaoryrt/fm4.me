@@ -1,5 +1,14 @@
 ---
-title: 关于
+title: 关于 theJungle
 layout: article
 ---
+The Jungle 由两个（终将不会年轻的）年轻人——王丹妮和高日天于 2017 年 8 月创办，
+是一档（暂时）没有主题的播客节目，两个人用声音记录他们（非极端）的思想和生活。
+
+The Jungle 的名字来自于「concrete jungle」，有「年轻人在钢筋丛林中求生」之意。
+巧合的是，这与枪花乐队的《welcome to the jungle》一曲表达了类似的思想。
+welcome to the jungle 正是在欢迎你收听本档节目。
+
+The Jungle 主要使用音频播客为载体，不定期更新图片与文字版本；主要是两个主播在录，不定期邀请朋友同录；
+
 
