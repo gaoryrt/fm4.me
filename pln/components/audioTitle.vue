@@ -4,14 +4,14 @@
     <h4 :class="title ? '' : '_untitled'">{{title}}</h4>
     <div class="line">
       <div class="operate" @click="bw">
-        <img :src="require('./arrow-go-back-line.svg')">
+        <img svg-inline src="../assets/arrow-go-back-line.svg">
       </div>
       <div class="operate" @click="pp">
-        <img v-if="paused" :src="require('./play-line.svg')">
-        <img v-else :src="require('./pause-line.svg')">
+        <img v-if="paused" svg-inline src="../assets/play-line.svg">
+        <img v-else svg-inline src="../assets/pause-line.svg">
       </div>
       <div class="operate" @click="ff">
-        <img :src="require('./arrow-go-forward-line.svg')">
+        <img svg-inline src="../assets/arrow-go-forward-line.svg">
       </div>
     </div>
     <div class="curTime" ref="curTime"></div>

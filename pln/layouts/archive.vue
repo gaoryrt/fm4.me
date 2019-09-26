@@ -1,5 +1,12 @@
 <template>
   <div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters" height="0">
+      <defs>
+        <filter id="blur">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+        </filter>
+      </defs>
+    </svg>
     <div class="center">
       <h1 class="pln-title">Archive</h1>
       <div class="pln-meta">该分类下共有{{page.posts.length}}个帖子</div>
@@ -11,17 +18,25 @@
           class="article"
         >
           <div class="post-time">{{formatDate(post.date)}}</div>
-          <h3 @click="clickPost(post)" class="post-title" :class="post.title ? '' : '_untitled'">{{post.title || 'untitled'}}</h3>
+          <div class="title-wrapper">
+            <div
+              @click="clickPost(post)"
+              class="post-title"
+              :class="post.title ? '' : '_untitled'"
+            >
+              <h3>{{post.title || 'untitled'}}</h3>
+            </div>
+          </div>
         </div>
       </div>
-
-
     </div>
     <div class="footer"></div>
   </div>
 </template>
 
 <script>
+import reveal from '../utils/hoverReveal'
+
 export const attributes = {
   title: 'archive',
   injectAllPosts: true
@@ -50,7 +65,12 @@ export default {
     }
   },
   mounted() {
-
+    this.$nextTick(() => {
+      reveal({
+        movinClassname: '.post-title',
+        wrapperClassname: '.title-wrapper'
+      })
+    })
   },
   methods: {
     clickPost(post) {
@@ -73,20 +93,43 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  overflow: hidden;
   transition: transform .2s;
-  border: 1px solid transparent
 }
 .post-time {
   text-align: right;
   width: 31.25%;
+  flex-shrink: 0;
+}
+.title-wrapper {
+  overflow: hidden;
+  margin-left: 3.125%;
+  width: 65.625%;
 }
 .post-title {
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  margin-right: 0;
   cursor: pointer;
-  margin-left: 3.125%;
-  max-width: 65.625%;
+}
+.post-title::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  background: #000;
+  transition: opacity .2s;
+  opacity: 0;
+}
+.post-title:hover::after {
+  opacity: 1;
 }
 .post-title._untitled {
+  opacity: .1
+}
+._untitled {
   opacity: .1
 }
 </style>

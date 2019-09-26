@@ -35,7 +35,7 @@ export default ({ movinClassname, wrapperClassname }) => {
       }
     }
     el.addEventListener('mousemove', e => {
-      alt = (wrapperWidth - movinWidth) * ((e.clientX - wrapperLeft) / wrapperWidth) * 1.1
+      alt = (wrapperWidth - movinWidth) * ((e.clientX - wrapperLeft) / wrapperWidth) * 1 - 50
       if (!init) {
         init = true
         step()

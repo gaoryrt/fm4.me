@@ -10,8 +10,8 @@
     <div class="center">
       <h1 class="pln-title">theJungle</h1>
       <nav class="pln-meta">
-        <saber-link to="/about">关于</saber-link>
-        <saber-link to="/archive">存档</saber-link>
+        <saber-link class="a" to="/about">关于</saber-link>
+        <saber-link class="a" to="/archive">存档</saber-link>
       </nav>
       <div v-if="page.posts">
         <div v-for="post in page.posts"
@@ -85,7 +85,7 @@ export default {
     width: 100%;
     height: 3px;
     position: absolute;
-    bottom: 0;
+    bottom: 12%;
     left: 0;
     background: #000;
     transition: opacity .2s;
@@ -104,9 +104,6 @@ export default {
   }
   .post-meta, .post-excerpt {
     width: 47.62%;
-  }
-  .pln-meta a {
-    color: #282828
   }
   @media screen and (max-width: 800px) {
     .article {

@@ -1,20 +1,25 @@
 <template>
   <div class="post-meta">
-    <div class="post-meta_line"><img :src="require('./calendar-line.svg')" class="icon"> {{ formatDate(post.createdAt) }}</div>
+    <div class="post-meta_line">
+      <img svg-inline class="icon" src="../assets/calendar-line.svg">
+      {{ formatDate(post.createdAt) }}
+    </div>
     <div
       class="post-meta_line"
       v-for="(objArr, idx) in [post.tagsInfo, post.categoriesInfo]"
       :key="idx"
       v-show ="objArr"
+      @click.stop=""
     >
-      <img :src="idx ? require('./price-tag-3-line.svg') : require('./folder-3-line.svg')" class="icon">
-      <a
+      <img class="icon" svg-inline v-if="idx" src="../assets/price-tag-3-line.svg">
+      <img class="icon" svg-inline v-else src="../assets/folder-3-line.svg">
+      <saber-link
         v-for="obj in objArr"
         :key="obj.name"
-        @click.stop="$router.push(obj.permalink)"
-      >
-        <span class="a">{{obj.name}} </span>
-      </a>
+        :to="obj.permalink"
+        class="a"
+        v-html="obj.name"
+      />
     </div>
   </div>
 </template>
@@ -38,27 +43,11 @@ export default {
   .post-meta {
     font-weight: 600;
   }
-  .a {
-    position: relative;
-    cursor: pointer;
-  }
-  .a::after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: #000;
-    transition: opacity .2s;
-    opacity: 0;
-  }
-  .a:hover::after {
-    opacity: 1
-  }
   .post-meta_line {
     height: 24px;
     line-height: 24px;
+    width: fit-content;
+    cursor: auto;
   }
   .icon {
     margin: 0;
@@ -67,5 +56,8 @@ export default {
     width: 18px;
     display: inline-block;
     vertical-align: middle;
+  }
+  .a + .a {
+    margin-left: 5px;
   }
 </style>

@@ -3,7 +3,8 @@
 html {
   width: 100%;
   overflow-x: hidden;
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', STHeiti,
+    'Microsoft Yahei', Tahoma, Simsun, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -34,7 +35,7 @@ h2 {
   font-family: 'Noto Serif SC', serif;
   font-size: 60px;
   font-weight: 300;
-  letter-spacing: -.5px;
+  letter-spacing: -0.5px;
 }
 h3 {
   font-family: 'Noto Serif SC', serif;
@@ -43,16 +44,9 @@ h3 {
 p {
   margin-bottom: 1em;
   font-size: 16px;
-  letter-spacing: .5px
+  letter-spacing: 0.5px;
 }
 
-/*
-  80 200 20 200 20 200 80
-112
-40
-40
-40
-*/
 .center {
   position: relative;
   width: 80vw;
@@ -72,17 +66,19 @@ p {
   width: 31.25%;
 }
 
-.page-enter-active, .page-leave-active {
-  transition: opacity .1s;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.1s;
 }
 
-.page-enter, .page-leave-to {
+.page-enter,
+.page-leave-to {
   opacity: 0;
 }
 
 hr {
   margin: 40px 0;
-  opacity: .1;
+  opacity: 0.1;
 }
 
 img {
@@ -104,7 +100,23 @@ blockquote p {
   font-size: 24px;
   color: #646464;
 }
-
+a,
+.a {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  transition: all .2s;
+  text-decoration: none;
+  color: #282828;
+}
+a:hover,
+.a:hover {
+  background: #282828;
+  color: #fff;
+}
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 48px;
