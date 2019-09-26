@@ -43,6 +43,11 @@ export const attributes = {
 }
 export default {
   props: ['page'],
+  head() {
+    return {
+      title: `archive - ${this.$siteConfig.title}`
+    }
+  },
   computed: {
     postsByDate() {
       const yearArr = []

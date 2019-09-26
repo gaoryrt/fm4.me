@@ -40,6 +40,11 @@ import curDot from 'cursor-dot'
 
 export default {
   props: ['page'],
+  head() {
+    return {
+      title: `${this.$siteConfig.title}`
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       reveal({

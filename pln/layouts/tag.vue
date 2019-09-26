@@ -24,6 +24,11 @@
 <script>
 export default {
   props: ['page'],
+  head() {
+    return {
+      title: `${this.page.title} - ${this.$siteConfig.title}`
+    }
+  },
   computed: {
     postsByDate() {
       const yearArr = []
