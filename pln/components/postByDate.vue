@@ -46,9 +46,11 @@ export default {
     postsByDate() {
       const yearArr = []
       const rtn = []
-      const getYearAndMon = str => str
+      const getYearAndMon = str => {
+        return str
         ? str.match(/^(\d+)-(\d+)-(\d+) /)
-        : [0, 'unknown']
+        : [0, 'unknown', '', '']
+      }
       this.page.posts.forEach(cur => {
         const [_, y, m, d] = getYearAndMon(cur.date)
         const yIdx = yearArr.indexOf(y)
