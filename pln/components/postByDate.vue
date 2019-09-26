@@ -46,7 +46,9 @@ export default {
     postsByDate() {
       const yearArr = []
       const rtn = []
-      const getYearAndMon = str => str.match(/^(\d+)-(\d+)-(\d+) /)
+      const getYearAndMon = str => str
+        ? str.match(/^(\d+)-(\d+)-(\d+) /)
+        : [0, 'unknown']
       this.page.posts.forEach(cur => {
         const [_, y, m, d] = getYearAndMon(cur.date)
         const yIdx = yearArr.indexOf(y)
@@ -77,8 +79,12 @@ export default {
       else this.$router.push(post.permalink)
     },
     formatDate(str) {
-      const [_, m, d] = str.match(/-(\d+)-(\d+)/)
-      return `${m}-${d}`
+      if (str) {
+        const [_, m, d] = str.match(/-(\d+)-(\d+)/)
+        return `${m}-${d}`
+      } else {
+        return ''
+      }
     }
   }
 }
