@@ -50,6 +50,7 @@ h4 {
   text-align: center;
   color: #fff;
   font-weight: 900;
+  text-shadow: 0 2px 10px #282828
 }
 .audio--ctnr:hover h4 {
   opacity: 0;
@@ -72,7 +73,7 @@ h4 {
 }
 .operate:hover {
   backdrop-filter: blur(5px);
-  /* background: rgba(0,0,0,.38) */
+  background: rgba(0,0,0,.2)
 }
 .audio--ctnr:hover .operate {
   opacity: 1;

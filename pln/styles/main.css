@@ -25,6 +25,10 @@ html {
   box-sizing: border-box;
 }
 
+svg:focus {
+  outline: none;
+}
+
 h1 {
   font-family: 'Noto Serif SC', serif;
   font-size: 96px;
