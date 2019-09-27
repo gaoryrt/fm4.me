@@ -1,128 +1,168 @@
 <template>
   <div class="audio--ctnr">
-    <img class="bg" :src="background">
-    <h4 :class="title ? '' : '_untitled'">{{title}}</h4>
-    <div class="line">
-      <div class="operate" @click="bw">
-        <img svg-inline src="../assets/arrow-go-back-line.svg">
+    <img class="cover" :src="cover">
+    <h4 :class="title ? '' : '_untitled'" v-html="title"/>
+    <div class="controler">
+      <div class="operate" @click="bw" v-show="!paused">
+        <img svg-inline src="../assets/rotate-ccw.svg">
       </div>
       <div class="operate" @click="pp">
-        <img v-if="paused" svg-inline src="../assets/play-line.svg">
-        <img v-else svg-inline src="../assets/pause-line.svg">
+        <img svg-inline v-if="paused" src="../assets/play.svg">
+        <img svg-inline v-else src="../assets/pause-line.svg">
       </div>
-      <div class="operate" @click="ff">
-        <img svg-inline src="../assets/arrow-go-forward-line.svg">
+      <div class="operate" @click="ff" v-show="!paused">
+        <img svg-inline src="../assets/rotate-cw.svg">
       </div>
     </div>
-    <div class="curTime" ref="curTime"></div>
+    <div class="time" ref="time">
+      <div class="cur" v-html="cur"/>
+      <div class="dur" v-html="sec2str(dur)"/>
+      <div class="line" ref="curTime"></div>
+      <div
+        class="scale"
+        :class="i % 2 ? '_5' : '_10'"
+        v-for="i in dur / 300 >> 0"
+        :key="i"
+        :style="`left:${i * 30000 / dur}%`"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .audio--ctnr {
   position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-.bg {
-  /* filter: blur(5px); */
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-.line {
   display: flex;
-  align-items: center;
+  width: 100%;
+  align-items: stretch;
+}
+.cover {
+  margin: 0;
+  width: 31.25%;
+}
+.controler {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 3.125%;
+  align-items: stretch;
   justify-content: space-between;
 }
-h4 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  line-height: 200px;
-  text-align: center;
-  color: #fff;
-  font-weight: 900;
-  text-shadow: 0 2px 10px #282828
-}
-.audio--ctnr:hover h4 {
-  opacity: 0;
-}
-.operate img {
-  height: 24px;
-  width: 24px;
-  margin: 0;
-  background: transparent;
-}
 .operate {
+  cursor: pointer;
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  flex-grow: 1;
-  height: 200px;
-  opacity: 0;
-  transition: all .2s
+  transition: all .3s;
+  background: linear-gradient(135deg, transparent, transparent)
 }
 .operate:hover {
-  backdrop-filter: blur(5px);
-  background: rgba(0,0,0,.2)
+  background: #fafafa;
 }
-.audio--ctnr:hover .operate {
-  opacity: 1;
+h4 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  line-height: 28px;
+  padding-left: .2em;
+  white-space: nowrap;
+  width: 31.25%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.curTime {
-  height: 4px;
+.time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  line-height: 1;
+  font-size: 12px;
+  width: 65.625%;
+  font-weight: 300;
+  pointer-events: none;
+}
+.line {
   position: absolute;
   bottom: 0;
-  left: 0;
-  background: #282828;
+  width: 0;
+  height: 32px;
+  border-right: 1px solid #000;
+}
+.scale {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  background: #888;
+}
+._10 {
+  height: 10px;
+}
+._5 {
+  height: 6px;
 }
 @media screen and (max-width: 800px) {
   .audio--ctnr {
-    width: 112%;
-    margin-left: -6%;
+    flex-direction: column;
   }
-  .operate {
-    backdrop-filter: blur(5px);
-    opacity: 1;
+  .cover {
+    margin: 0;
+    margin-left: -5.55%;
+    width: 111.11%;
   }
   h4 {
-    opacity: 0;
+    width: 100%;
+    bottom: 205px;
+  }
+  .controler {
+    height: 200px;
+    margin-left: -5.55%;
+    width: 111.11%;
+  }
+  .time {
+    width: 100%;
   }
 }
 </style>
 
 <script>
   export default {
-    props: ['title', 'src', 'background'],
+    props: ['title', 'src', 'cover'],
     data() {
       return {
         paused: true,
-        audio: null
+        audio: null,
+        cur: '-:--',
+        dur: '--:--'
       }
     },
     components: {},
     mounted() {
-      this.audio = new Audio(this.src)
       this.$nextTick(() => {
+        this.audio = new Audio(this.src)
+        this.audio.addEventListener('canplay', () => {
+          this.update()
+          this.dur = this.audio.duration
+        })
         this.audio.addEventListener('timeupdate', this.update)
       })
     },
     methods: {
+      sec2str(num) {
+        const min = num / 60 >> 0
+        const sec = num % 60 >> 0
+        return `${min}:${sec < 10 ? ('0' + sec) : sec}`
+      },
       update() {
-        const per = this.audio.currentTime * 100 / this.audio.duration + '%'
-        this.$refs.curTime.style.width = per
+        const cur = this.audio.currentTime
+        const dur = this.audio.duration
+        const per = cur * 100 / dur + '%'
+        this.$refs.curTime.style.left = per
+        this.cur = this.sec2str(cur)
       },
       ff() {
-        this.audio.currentTime += 5
+        this.audio.currentTime += 15
       },
       pp() {
         if (this.paused) {

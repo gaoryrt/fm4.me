@@ -4,7 +4,7 @@
       <Title
         :title="page.title || 'untitled'"
         :src="page.radio"
-        :background="page.background"
+        :cover="page.background"
       />
       <div class="pln-meta">
         <Meta :post="page"/>
@@ -49,7 +49,7 @@ export default {
     Title
   },
   mounted() {
-    console.log(this.page.radio)
+
   },
   methods: {
     jump
@@ -82,6 +82,9 @@ export default {
   opacity: .1
 }
 @media screen and (max-width: 800px) {
+  .center {
+    margin-top: -140px;
+  }
   .content {
     flex-direction: column;
   }
