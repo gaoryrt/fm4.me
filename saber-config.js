@@ -5,7 +5,7 @@ module.exports = {
     post: '/:year/:month/:day/:slug'
   },
   siteConfig: {
-    title: 'thejungle'
+    title: 'theJungle'
   },
   // build: {
   //   extractCSS: true
