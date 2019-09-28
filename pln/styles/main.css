@@ -54,7 +54,7 @@ p {
 .center {
   position: relative;
   width: 80vw;
-  max-width: 800px;
+  max-width: 820px;
   left: 50%;
   transform: translateX(-50%);
 }
