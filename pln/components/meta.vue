@@ -40,9 +40,6 @@ export default {
 </script>
 
 <style scoped>
-  .post-meta {
-    font-weight: 600;
-  }
   .post-meta_line {
     height: 24px;
     line-height: 24px;
