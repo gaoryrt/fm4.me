@@ -139,4 +139,19 @@ export default {
 ._untitled {
   opacity: .1
 }
+@media screen and (max-width: 800px) {
+  .article {
+    align-items: flex-start;
+  }
+  .post-title {
+    height: auto;
+    white-space: normal;
+  }
+  .post-title::after {
+    background: transparent
+  }
+  .post-time {
+    line-height: 39px;
+  }
+}
 </style>

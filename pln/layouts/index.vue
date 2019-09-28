@@ -124,9 +124,10 @@ export default {
     }
     .post-title {
       height: auto;
+      white-space: normal;
     }
-    .post-info {
-      /* margin-top: 0; */
+    .post-title::after {
+      background: transparent
     }
   }
 </style>

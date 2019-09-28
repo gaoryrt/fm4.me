@@ -1,5 +1,5 @@
 ---
-title: 关于 theJungle
+title: 关于
 layout: article
 ---
 The Jungle 由两个（终将不会年轻的）年轻人——王丹妮和高日天于 2017 年 8 月创办，

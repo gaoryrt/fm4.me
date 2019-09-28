@@ -1,4 +1,5 @@
 export default ({ movinClassname, wrapperClassname }) => {
+  if (/Android|iPhone|iPad|iOS|iPod/i.test(navigator.userAgent)) return
   var filters = document.querySelector(".filters"), // the SVG that contains the filters
     defs = filters.querySelector("defs"), // the  element inside the SVG
     blur = defs.querySelector("#blur"), // the blur filter

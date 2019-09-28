@@ -41,9 +41,9 @@ export default {
 
 <style scoped>
   .post-meta_line {
+    display: inline-block;
     height: 24px;
     line-height: 24px;
-    width: fit-content;
     cursor: auto;
   }
   .icon {
