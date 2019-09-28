@@ -5,11 +5,11 @@ tags:
 - 王丹妮
 - 高日天
 layout: podcast
-radio: /assets/audio/wdannii - Untitled ｜ The Jungle.mp3
+radio: /assets/audio/wdannii - 尿性 · 家庭 ｜ The Jungle.mp3
 background: /assets/cover.jpg
 ---
 
-## 第二期
-- 二人在节目定调上达成一致。
-- 有关‘湿货’。
-- 原生家庭和我们的关系。
+第二期  
+二人在节目定调上达成一致。  
+有关‘湿货’。  
+原生家庭和我们的关系。

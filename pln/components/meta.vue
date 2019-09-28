@@ -11,8 +11,8 @@
       v-show ="objArr"
       @click.stop=""
     >
-      <img class="icon" svg-inline v-if="idx" src="../assets/price-tag-3-line.svg">
-      <img class="icon" svg-inline v-else src="../assets/folder-3-line.svg">
+      <img class="icon" svg-inline v-if="idx" src="../assets/folder-3-line.svg">
+      <img class="icon" svg-inline v-else src="../assets/price-tag-3-line.svg">
       <saber-link
         v-for="obj in objArr"
         :key="obj.name"

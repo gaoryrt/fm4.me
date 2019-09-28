@@ -14,7 +14,7 @@ export default ({ movinClassname, wrapperClassname }) => {
     const movinEl = el.querySelector(movinClassname)
     const movinWidth = movinEl.clientWidth
     if (movinWidth <= wrapperWidth) return
-    movinEl.style.filter = 'url("#blur")'
+    // movinEl.style.filter = 'url("#blur")'
     let alt = 0, cur = 0, init = false
     const step = () => {
       const d = alt - cur
@@ -35,6 +35,7 @@ export default ({ movinClassname, wrapperClassname }) => {
       }
     }
     el.addEventListener('mousemove', e => {
+      el.querySelector(movinClassname).style.filter = 'url("#blur")'
       alt = (wrapperWidth - movinWidth - 50) * ((e.clientX - wrapperLeft) / wrapperWidth)
       if (!init) {
         init = true
@@ -42,6 +43,7 @@ export default ({ movinClassname, wrapperClassname }) => {
       }
     })
     el.addEventListener('mouseleave', () => {
+      el.querySelector(movinClassname).style.filter = 'none'
       alt = 0
     })
   })
