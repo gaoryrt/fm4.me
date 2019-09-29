@@ -43,10 +43,10 @@ export default {
   .post-meta {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
   }
   .post-meta_line {
     line-height: 24px;
-    cursor: auto;
   }
   .icon {
     margin: 0;

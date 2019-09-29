@@ -45,6 +45,10 @@ export default ({ movinClassname, wrapperClassname }) => {
     el.addEventListener('mouseleave', () => {
       el.querySelector(movinClassname).style.filter = 'none'
       alt = 0
+      if (!init) {
+        init = true
+        step()
+      }
     })
   })
 }
