@@ -69,6 +69,7 @@ h4 {
   width: 31.25%;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #538A18
 }
 .time {
   position: absolute;
@@ -88,13 +89,13 @@ h4 {
   bottom: 0;
   width: 0;
   height: 32px;
-  border-right: 1px solid #000;
+  border-right: 1px solid #538A18;
 }
 .scale {
   position: absolute;
   bottom: 0;
   width: 1px;
-  background: #888;
+  background: #000;
 }
 ._10 {
   height: 10px;

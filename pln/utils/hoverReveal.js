@@ -15,7 +15,6 @@ export default ({ movinClassname, wrapperClassname }) => {
     const movinEl = el.querySelector(movinClassname)
     const movinWidth = movinEl.clientWidth
     if (movinWidth <= wrapperWidth) return
-    // movinEl.style.filter = 'url("#blur")'
     let alt = 0, cur = 0, init = false
     const step = () => {
       const d = alt - cur

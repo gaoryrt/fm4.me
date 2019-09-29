@@ -40,9 +40,11 @@ export default {
 </script>
 
 <style scoped>
+  .post-meta {
+    display: flex;
+    flex-direction: column;
+  }
   .post-meta_line {
-    display: inline-block;
-    height: 24px;
     line-height: 24px;
     cursor: auto;
   }

@@ -8,7 +8,7 @@
       </defs>
     </svg>
     <div class="center">
-      <h1 class="pln-title">theJungle</h1>
+      <h1 class="pln-title">the<span class="_green">Jungle</span></h1>
       <nav class="pln-meta">
         <saber-link class="a" to="/about">关于</saber-link>
         <saber-link class="a" to="/archive">存档</saber-link>
@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style scoped>
+  ._green {
+    color: #538A18
+  }
   .article {
     margin-top: 80px;
     min-height: 200px;
@@ -84,20 +87,10 @@ export default {
     white-space: nowrap;
     width: fit-content;
     height: 96px;
+    transition: color .2s;
   }
-  .post-title::after {
-    content: '';
-    width: 100%;
-    height: 3px;
-    position: absolute;
-    bottom: 12%;
-    left: 0;
-    background: #000;
-    transition: opacity .2s;
-    opacity: 0;
-  }
-  .article:hover .post-title::after {
-    opacity: 1;
+  .article:hover .post-title {
+    color: #538A18
   }
   .post-title._untitled {
     opacity: .1

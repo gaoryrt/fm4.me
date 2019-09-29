@@ -93,6 +93,9 @@ export default {
 </script>
 
 <style scoped>
+.pln-title {
+  color: #538A18;
+}
 .year-sec {
   margin-top: 40px;
 }
@@ -118,20 +121,10 @@ export default {
   width: fit-content;
   margin-right: 0;
   cursor: pointer;
+  transition: color .2s;
 }
-.post-title::after {
-  content: '';
-  width: 100%;
-  height: 3px;
-  position: absolute;
-  bottom: 12%;
-  left: 0;
-  background: #000;
-  transition: opacity .2s;
-  opacity: 0;
-}
-.post-title:hover::after {
-  opacity: 1;
+.post-title:hover {
+  color: #538A18
 }
 .post-title._untitled {
   opacity: .1
