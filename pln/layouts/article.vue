@@ -75,8 +75,20 @@ export default {
   margin-left: 3.125%;
   width: 65.625%;
 }
+.main-content h4 {
+  margin-bottom: 1em;
+}
+.main-content h5 {
+  margin-bottom: 1em;
+}
+.main-content h6 {
+  margin-bottom: 1em;
+}
 .pln-title._untitled {
   opacity: .1
+}
+.line {
+  display: flex;
 }
 @media screen and (max-width: 800px) {
   .content {

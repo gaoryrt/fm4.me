@@ -4,15 +4,11 @@
 
 <script>
 import posts from '../components/postByDate'
-export const attributes = {
-  title: 'archive',
-  injectAllPosts: true
-}
 export default {
   props: ['page'],
   head() {
     return {
-      title: `archive - ${this.$siteConfig.title}`
+      title: `${this.page.title} - ${this.$siteConfig.title}`
     }
   },
   components: {

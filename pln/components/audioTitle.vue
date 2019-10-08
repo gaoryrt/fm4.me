@@ -148,6 +148,9 @@ h4 {
         this.audio.addEventListener('timeupdate', this.update)
       })
     },
+    beforeDestroy() {
+      this.audio.pause()
+    },
     methods: {
       sec2str(num) {
         const min = num / 60 >> 0
@@ -155,6 +158,7 @@ h4 {
         return `${min}:${sec < 10 ? ('0' + sec) : sec}`
       },
       update() {
+        if (!this.$refs.curTime) return
         const cur = this.audio.currentTime
         const dur = this.audio.duration
         const per = cur * 100 / dur + '%'

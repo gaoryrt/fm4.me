@@ -31,7 +31,7 @@ svg:focus {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  line-height: 1.5
+  line-height: 1.5;
 }
 h1 {
   font-family: 'Noto Serif SC', serif;
@@ -111,6 +111,7 @@ blockquote p {
   font-size: 24px;
   color: #646464;
 }
+
 a,
 .a {
   display: inline-block;

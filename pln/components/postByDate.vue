@@ -8,7 +8,7 @@
       </defs>
     </svg>
     <div class="center">
-      <h1 class="pln-title" v-html="page.slug"></h1>
+      <h1 class="pln-title" v-html="page.title || page.slug"></h1>
       <div class="pln-meta">该分类下共有{{page.posts.length}}个帖子</div>
 
       <div v-for="year in postsByDate" :key="year.y" class="year-sec">
@@ -121,12 +121,12 @@ export default {
   width: fit-content;
   margin-right: 0;
   cursor: pointer;
-  transition: color .2s;
 }
 .post-title h3 {
+  transition: color .2s;
   font-weight: 400;
 }
-.post-title:hover {
+.post-title:hover h3 {
   color: #538A18
 }
 .post-title._untitled {

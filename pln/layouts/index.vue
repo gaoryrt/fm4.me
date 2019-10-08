@@ -11,6 +11,7 @@
       <h1 class="pln-title">the<span class="_green">Jungle</span></h1>
       <nav class="pln-meta">
         <saber-link class="a" to="/about">关于</saber-link>
+        <saber-link class="a" to="/donate">捐助</saber-link>
         <saber-link class="a" to="/archive">存档</saber-link>
       </nav>
       <div v-if="page.posts">
