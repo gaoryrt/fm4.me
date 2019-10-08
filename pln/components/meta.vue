@@ -46,7 +46,8 @@ export default {
     align-items: flex-start;
   }
   .post-meta_line {
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 1.4;
   }
   .icon {
     margin: 0;

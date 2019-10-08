@@ -123,6 +123,9 @@ export default {
   cursor: pointer;
   transition: color .2s;
 }
+.post-title h3 {
+  font-weight: 400;
+}
 .post-title:hover {
   color: #538A18
 }
@@ -144,7 +147,7 @@ export default {
     background: transparent
   }
   .post-time {
-    line-height: 39px;
+    line-height: 34px;
   }
 }
 </style>

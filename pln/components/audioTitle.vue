@@ -63,7 +63,6 @@ h4 {
   position: absolute;
   left: 0;
   bottom: 0;
-  line-height: 28px;
   padding-left: .2em;
   white-space: nowrap;
   width: 31.25%;
