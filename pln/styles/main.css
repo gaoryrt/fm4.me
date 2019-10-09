@@ -119,16 +119,13 @@ a,
   position: relative;
   margin: 0;
   padding: 0;
-  /* font-size: 18px; */
   line-height: 1.4;
   vertical-align: baseline;
   background: transparent;
   transition: all .2s;
   text-decoration: none;
-  color: inherit
-}
-.a + .a {
-  margin-left: 5px;
+  color: inherit;
+  margin-right: 5px;
 }
 a:hover,
 .a:hover {

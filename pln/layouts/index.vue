@@ -34,6 +34,24 @@
           </div>
         </div>
       </div>
+      <div
+        class="pagination"
+        v-if="page.pagination && (page.pagination.hasNext || page.pagination.hasPrev)"
+      >
+        <h4 class="indicator" v-html="`${page.pagination.current}/${page.pagination.total}`"></h4>
+        <div class="controler">
+          <router-link
+            class="a"
+            :to="page.pagination.nextLink"
+            v-if="page.pagination.hasNext"
+          >上一页</router-link>
+          <router-link
+            class="a"
+            :to="page.pagination.prevLink"
+            v-if="page.pagination.hasPrev"
+          >下一页</router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -107,6 +125,17 @@ export default {
   }
   .post-meta, .post-excerpt {
     width: 47.62%;
+  }
+  .pagination {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .pagination .indicator {
+    width: 31.25%;
+  }
+  .pagination .controler {
+    margin-left: 3.125%;
   }
   @media screen and (max-width: 800px) {
     .article {

@@ -57,4 +57,9 @@ export default {
     display: inline-block;
     vertical-align: middle;
   }
+  @media screen and (max-width: 450px) {
+    .icon {
+      display: none;
+    }
+  }
 </style>
