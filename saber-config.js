@@ -7,9 +7,22 @@ module.exports = {
   siteConfig: {
     title: 'theJungle'
   },
-  // build: {
-  //   extractCSS: true
-  // },
+  themeConfig: {
+    nav: [
+      {
+        text: '关于',
+        link: '/about'
+      },
+      {
+        text: '捐助',
+        link: '/donate'
+      },
+      {
+        text: '存档',
+        link: '/archive'
+      }
+    ]
+  },
   plugins: [
     {
       resolve: 'saber-plugin-query-posts'

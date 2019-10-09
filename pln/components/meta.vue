@@ -57,7 +57,4 @@ export default {
     display: inline-block;
     vertical-align: middle;
   }
-  .a + .a {
-    margin-left: 5px;
-  }
 </style>

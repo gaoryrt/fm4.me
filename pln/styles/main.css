@@ -127,6 +127,9 @@ a,
   text-decoration: none;
   color: inherit
 }
+.a + .a {
+  margin-left: 5px;
+}
 a:hover,
 .a:hover {
   background: #538A18;

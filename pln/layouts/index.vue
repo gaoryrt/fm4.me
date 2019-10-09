@@ -10,9 +10,13 @@
     <div class="center">
       <h1 class="pln-title">the<span class="_green">Jungle</span></h1>
       <nav class="pln-meta">
-        <saber-link class="a" to="/about">关于</saber-link>
-        <saber-link class="a" to="/donate">捐助</saber-link>
-        <saber-link class="a" to="/archive">存档</saber-link>
+        <saber-link
+          v-for="o in $themeConfig.nav"
+          :key="o.text"
+          v-html="o.text"
+          class="a"
+          :to="o.link"
+        />
       </nav>
       <div v-if="page.posts">
         <div v-for="post in page.posts"
