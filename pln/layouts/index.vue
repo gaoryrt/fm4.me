@@ -62,6 +62,12 @@ import reveal from '../utils/hoverReveal'
 import curDot from 'cursor-dot'
 
 export default {
+  head: {
+    meta: [{
+      name: 'google-site-verification',
+      content: 'YH7VCx0kEq0ydsgzB_NgPxDkkBnTcqknof8zOKVFaJo'
+    }]
+  },
   props: ['page'],
   head() {
     return {
