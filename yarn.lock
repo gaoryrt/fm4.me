@@ -4871,6 +4871,11 @@ saber-plugin-query-posts@^0.4.2:
     slugo "^0.2.3"
     url-join "^4.0.0"
 
+saber-plugin-seo@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.npm.taobao.org/saber-plugin-seo/download/saber-plugin-seo-0.1.3.tgz#1aa4bd08bc071705f73c0ec19d65c4c6d4823ef7"
+  integrity sha1-GqS9CLwHFwX3PA7BnWXExtSCPvc=
+
 saber-utils@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmjs.org/saber-utils/-/saber-utils-0.2.1.tgz#20d4942cb5a3c61b7da97119c5aaae69b5c8b356"
