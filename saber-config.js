@@ -32,9 +32,12 @@ module.exports = {
     },
     {
       resolve: 'saber-plugin-seo'
+    },
+    {
+      resolve: 'saber-plugin-sitemap'
     }
   ],
   build: {
-    extractCSS: true
+    extractCSS: process.env.NODE_ENV !== 'development'
   }
 }
