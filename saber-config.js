@@ -5,6 +5,7 @@ module.exports = {
     post: '/:year/:month/:day/:slug'
   },
   siteConfig: {
+    url: 'https://jungle.fm',
     title: 'theJungle',
     description: '两个年轻人，用声音记录思想和生活',
     author: 'Dannie & Gaoryrt',
