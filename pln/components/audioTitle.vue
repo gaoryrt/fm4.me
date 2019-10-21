@@ -3,16 +3,16 @@
     <img class="cover" :src="cover">
     <h4 :class="title ? '' : '_untitled'" v-html="title"/>
     <div class="controler">
-      <div class="operate" @click="bw" v-show="!paused">
+      <!-- <div class="operate" @click="bw" v-show="!paused">
         <img svg-inline src="../assets/rotate-ccw.svg">
-      </div>
+      </div> -->
       <div class="operate" @click="pp">
         <img svg-inline v-if="paused" src="../assets/play.svg">
         <img svg-inline v-else src="../assets/pause-line.svg">
       </div>
-      <div class="operate" @click="ff" v-show="!paused">
+      <!-- <div class="operate" @click="ff" v-show="!paused">
         <img svg-inline src="../assets/rotate-cw.svg">
-      </div>
+      </div> -->
     </div>
     <div class="time" ref="time">
       <div class="cur" v-html="cur"/>
@@ -68,7 +68,9 @@ h4 {
   width: 31.25%;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #538A18
+  color: #538A18;
+  background: rgba(255, 255, 255, .62);
+  backdrop-filter: blur(4px)
 }
 .time {
   position: absolute;
