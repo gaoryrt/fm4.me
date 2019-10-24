@@ -93,13 +93,6 @@ hr {
   opacity: 0.1;
 }
 
-img {
-  width: 111%;
-  margin-left: -5.5%;
-  margin-top: 40px;
-  background: #f4f4f4;
-}
-
 iframe {
   margin: 40px 0;
   width: 100%;
@@ -143,6 +136,7 @@ a:hover,
     font-size: 24px;
   }
   .center {
+    width: 90%;
     width: 90vw;
   }
   .pln-title {
