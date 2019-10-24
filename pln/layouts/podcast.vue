@@ -5,6 +5,7 @@
         :title="page.title || 'untitled'"
         :src="page.radio"
         :cover="page.background"
+        :artist="page.tags"
       />
       <div class="pln-meta">
         <Meta :post="page"/>

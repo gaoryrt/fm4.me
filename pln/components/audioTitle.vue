@@ -20,7 +20,6 @@
             </div>
           </div>
         </div>
-        <!-- <div v-else class="loading">loading</div> -->
       </div>
     </div>
     <div class="info-line">
@@ -43,7 +42,7 @@
 
 <script>
 export default {
-  props: ['src', 'cover', 'title'],
+  props: ['src', 'cover', 'title', 'artist'],
   data: () => ({
     speeds: [2, 1.4, 1, .7, .5],
     audio: null,
@@ -92,6 +91,15 @@ export default {
       setTimeout(() => {
         this.musicReady = true
       }, 100)
+      if (!navigator.mediaSession) return
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: this.title,
+        artist: this.artist.join(', '),
+        album: 'the Jungle',
+        artwork: [
+          { src: this.cover }
+        ]
+      })
     }
     this.audio.ontimeupdate = () => {
       this.currentTime = this.audio.currentTime
@@ -99,6 +107,9 @@ export default {
     this.audio.onstalled = () => {
       this.audio.load()
       this.playing = false
+      setTimeout(() => {
+        this.playing = true
+      }, 100)
     }
     this.audio.onended = () => {
       this.playing = false
@@ -300,8 +311,9 @@ export default {
   }
   .line,
   .time {
-    width: 111.11%;
-    margin-left: -5.55%;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
   }
   .time {
     margin-top: 20px;
