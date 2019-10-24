@@ -46,7 +46,7 @@ export default {
   props: ['src', 'cover', 'title'],
   data: () => ({
     speeds: [2, 1.4, 1, .7, .5],
-    audio: new Audio(),
+    audio: null,
     musicReady: false,
     playing: false,
     currentTime: 0,
@@ -72,7 +72,7 @@ export default {
     },
   },
   mounted() {
-    this.audio.src = this.src
+    this.audio = new Audio(this.src)
     this.audio.onprogress = () => {
       try {
         if (this.audio.buffered.length > 0) {
