@@ -75,10 +75,6 @@ export default {
 .sections {
   width: 31.25%;
 }
-.main-content {
-  margin-left: 3.125%;
-  width: 65.625%;
-}
 .pln-title._untitled {
   opacity: .1
 }

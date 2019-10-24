@@ -125,6 +125,23 @@ a:hover,
   background: #538A18;
   color: #fff;
 }
+.main-content {
+  margin-left: 3.125%;
+  width: 65.625%;
+}
+.main-content h4 {
+  margin-bottom: 1em;
+}
+.main-content h5 {
+  margin-bottom: 1em;
+}
+.main-content h6 {
+  margin-bottom: 1em;
+}
+.main-content img {
+  margin-top: 20px;
+  width: 100%;
+}
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 48px;

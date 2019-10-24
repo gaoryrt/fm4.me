@@ -55,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+img {
+  width: 100%;
+  margin-top: 
+}
 .sections {
   width: 31.25%;
 }
@@ -71,19 +75,7 @@ export default {
   margin-top: 40px;
   display: flex;
 }
-.main-content {
-  margin-left: 3.125%;
-  width: 65.625%;
-}
-.main-content h4 {
-  margin-bottom: 1em;
-}
-.main-content h5 {
-  margin-bottom: 1em;
-}
-.main-content h6 {
-  margin-bottom: 1em;
-}
+
 .pln-title._untitled {
   opacity: .1
 }
