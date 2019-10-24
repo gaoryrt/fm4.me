@@ -107,9 +107,6 @@ export default {
     this.audio.onstalled = () => {
       this.audio.load()
       this.playing = false
-      setTimeout(() => {
-        this.playing = true
-      }, 100)
     }
     this.audio.onended = () => {
       this.playing = false
