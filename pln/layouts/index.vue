@@ -93,9 +93,6 @@ export default {
 </script>
 
 <style scoped>
-  ._green {
-    color: #538A18
-  }
   .article {
     margin-top: 80px;
     min-height: 200px;

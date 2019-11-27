@@ -15,7 +15,7 @@ html {
   -webkit-tap-highlight-color: transparent;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
-  padding: 140px 0 100px;
+  padding: 140px 0 0;
   line-height: 1.7;
   background: #fff;
 }
@@ -141,6 +141,9 @@ a:hover,
 .main-content img {
   margin-top: 20px;
   width: 100%;
+}
+._green {
+  color: #538A18
 }
 @media screen and (max-width: 800px) {
   h1 {

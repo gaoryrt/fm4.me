@@ -30,18 +30,20 @@
         </div>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import reveal from '../utils/hoverReveal'
-
+import Footer from '../components/footer'
 export const attributes = {
   title: 'archive',
   injectAllPosts: true
 }
 export default {
   props: ['page'],
+  components: { Footer },
   computed: {
     postsByDate() {
       const yearArr = []
