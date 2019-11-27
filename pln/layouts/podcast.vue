@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-height">
     <div class="center">
       <Title
         :title="page.title || 'untitled'"

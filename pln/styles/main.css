@@ -145,6 +145,11 @@ a:hover,
 ._green {
   color: #538A18
 }
+.min-height {
+  position: relative;
+  min-height: calc(100vh - 140px);
+  padding-bottom: 24vw;
+}
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 48px;
@@ -180,5 +185,10 @@ a:hover,
     color: transparent;
     background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath fill='%23444' d='M13.05 12.36l-5.656 5.658-1.414-1.415 5.657-5.656-4.95-4.95H18V17.31z'/%3E%3C/svg%3E") no-repeat center center;
     line-height: inherit;
+  }
+  .min-height {
+    position: relative;
+    min-height: calc(100vh - 140px);
+    padding-bottom: 40vw;
   }
 }

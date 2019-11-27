@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-height">
     <div class="center">
       <h1
         class="pln-title"

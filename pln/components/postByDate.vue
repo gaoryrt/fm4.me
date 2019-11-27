@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-height">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters" height="0">
       <defs>
         <filter id="blur">
