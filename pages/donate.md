@@ -8,7 +8,7 @@ layout: article
 
 你可以使用支付宝或者微信扫一扫下面二维码支持我们。
 
-![](/assets/donate.png)
+![](/assets/donate.jpg)
 
 特别感谢这些朋友：
 > 祝这对用我的钱喂我狗粮的 couple 的 jungle fm 越办越好 —— [mwo](https://mwo.sh)
