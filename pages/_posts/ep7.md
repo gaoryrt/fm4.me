@@ -5,7 +5,7 @@ tags:
 - 王丹妮
 - 高日天
 layout: podcast
-radio: /assets/audio/wdannii - 虽然活不到100年后但我们还想谈谈100年后的世界 ｜ The Jungle.mp3
+radio: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 虽然活不到100年后但我们还想谈谈100年后的世界 ｜ The Jungle.mp3
 background: /assets/cover.jpg
 ---
 人工智能的基础是啥  

@@ -5,7 +5,7 @@ tags:
 - 王丹妮
 - 高日天
 layout: podcast
-radio: /assets/audio/wdannii - 泸沽湖闲聊｜The Jungle.mp3
+radio: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 泸沽湖闲聊｜The Jungle.mp3
 background: /assets/cover.jpg
 ---
 关于泸沽湖的旅游  

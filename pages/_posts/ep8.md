@@ -7,7 +7,7 @@ tags:
 categories:
 - 彩蛋
 layout: podcast
-radio: /assets/audio/wdannii - 日常彩蛋1 ｜ The Jungle.mp3
+radio: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 日常彩蛋1 ｜ The Jungle.mp3
 background: /assets/cover.jpg
 ---
 男主播唱歌 & 川普教学

@@ -5,7 +5,7 @@ tags:
 - 王丹妮
 - 高日天
 layout: podcast
-radio: /assets/audio/wdannii - 国庆特别节目（上）｜ The Jungle.mp3
+radio: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 国庆特别节目（上）｜ The Jungle.mp3
 background: /assets/cover.jpg
 ---
 自驾新疆初印象  
