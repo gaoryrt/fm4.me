@@ -21,7 +21,7 @@
           <slot name="default"/>
         </div>
       </div>
-      <div id="gitalk-container"></div>
+      <script id="dsq-count-scr" src="//thejungle-1.disqus.com/count.js" async></script>
     </div>
     <Footer/>
   </div>
@@ -31,8 +31,6 @@
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 import jump from 'jump.js'
-import 'gitalk/dist/gitalk.css'
-import Gitalk from 'gitalk'
 
 export default {
   props: ['page'],
@@ -49,16 +47,7 @@ export default {
     Meta
   },
   mounted() {
-    const gitalk = new Gitalk({
-      clientID: 'b60be68b269396f59b24',
-      clientSecret: '7b79614e73529612360f104d1c479664d3e087ee',
-      repo: 'https://github.com/gaoryrt/fm4.me',
-      owner: 'gaoryrt',
-      admin: ['gaoryrt'],
-      id: this.page.permalink,      // Ensure uniqueness and length less than 50
-      distractionFreeMode: false  // Facebook-like distraction free mode
-    })
-    gitalk.render('gitalk-container')
+
   },
   methods: {
     jump
