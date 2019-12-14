@@ -55,7 +55,7 @@ export default {
       repo: 'https://github.com/gaoryrt/fm4.me',
       owner: 'gaoryrt',
       admin: ['gaoryrt'],
-      id: this.page.internal.id,      // Ensure uniqueness and length less than 50
+      id: this.page.permalink,      // Ensure uniqueness and length less than 50
       distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')
