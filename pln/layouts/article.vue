@@ -40,7 +40,7 @@ const gitalk = new Gitalk({
   repo: 'https://github.com/gaoryrt/fm4.me',
   owner: 'gaoryrt',
   admin: ['gaoryrt'],
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  id: window.location.pathname,      // Ensure uniqueness and length less than 50
   distractionFreeMode: false  // Facebook-like distraction free mode
 })
 
