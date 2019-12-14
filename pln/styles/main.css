@@ -150,6 +150,9 @@ a:hover,
   min-height: calc(100vh - 140px);
   padding-bottom: 24vw;
 }
+#disqus_thread iframe {
+  background: #0000 !important
+}
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 48px;
