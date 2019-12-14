@@ -34,16 +34,6 @@ import jump from 'jump.js'
 import 'gitalk/dist/gitalk.css'
 import Gitalk from 'gitalk'
 
-const gitalk = new Gitalk({
-  clientID: 'b60be68b269396f59b24',
-  clientSecret: '7b79614e73529612360f104d1c479664d3e087ee',
-  repo: 'https://github.com/gaoryrt/fm4.me',
-  owner: 'gaoryrt',
-  admin: ['gaoryrt'],
-  id: window.location.pathname,      // Ensure uniqueness and length less than 50
-  distractionFreeMode: false  // Facebook-like distraction free mode
-})
-
 export default {
   props: ['page'],
   head() {
@@ -59,6 +49,15 @@ export default {
     Meta
   },
   mounted() {
+    const gitalk = new Gitalk({
+      clientID: 'b60be68b269396f59b24',
+      clientSecret: '7b79614e73529612360f104d1c479664d3e087ee',
+      repo: 'https://github.com/gaoryrt/fm4.me',
+      owner: 'gaoryrt',
+      admin: ['gaoryrt'],
+      id: this.page.internal.id,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    })
     gitalk.render('gitalk-container')
   },
   methods: {
