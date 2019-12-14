@@ -21,6 +21,7 @@
           <slot name="default"/>
         </div>
       </div>
+      <div id="gitalk-container"></div>
     </div>
     <Footer/>
   </div>
@@ -30,6 +31,18 @@
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 import jump from 'jump.js'
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
+
+const gitalk = new Gitalk({
+  clientID: 'b60be68b269396f59b24',
+  clientSecret: '7b79614e73529612360f104d1c479664d3e087ee',
+  repo: 'https://github.com/gaoryrt/fm4.me',
+  owner: 'gaoryrt',
+  admin: ['gaoryrt'],
+  id: location.pathname,      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
 
 export default {
   props: ['page'],
@@ -46,7 +59,7 @@ export default {
     Meta
   },
   mounted() {
-
+    gitalk.render('gitalk-container')
   },
   methods: {
     jump
