@@ -138,23 +138,23 @@ export default {
   .pagination .controler {
     margin-left: 3.125%;
   }
+  .a.article,
+  a.article {
+    text-decoration: none;
+  }
+  .a.article::after,
+  a.article::after {
+    display: none;
+  }
+  a.article:hover,
+  .a.article:hover {
+    background: #0000;
+    color: #282828
+  }
   @media screen and (max-width: 800px) {
     .article {
       margin-left: 0;
       width: 100%;
-    }
-    .a.article,
-    a.article {
-      text-decoration: none;
-    }
-    .a.article::after,
-    a.article::after {
-      display: none;
-    }
-    a.article:hover,
-    .a.article:hover {
-      background: #0000;
-      color: #282828
     }
     .post-meta {
       width: 31.25%;

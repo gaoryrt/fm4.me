@@ -137,6 +137,19 @@ export default {
 ._untitled {
   opacity: .1
 }
+.a.post-title,
+a.post-title {
+  text-decoration: none;
+}
+.a.post-title::after,
+a.post-title::after {
+  display: none;
+}
+a.post-title:hover,
+.a.post-title:hover {
+  background: #0000;
+  color: #282828
+}
 @media screen and (max-width: 800px) {
   .article {
     align-items: flex-start;
