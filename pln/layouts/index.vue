@@ -29,7 +29,7 @@
             :class="post.title ? '' : '_untitled'"
           >{{post.title || 'untitled'}}</h2>
           <div class="post-info">
-            <Meta class="post-meta" :post="post"/>
+            <Meta class="post-meta" :post="post" :index="true"/>
             <div class="post-excerpt" v-html="post.excerpt"></div>
           </div>
         </saber-link>

@@ -6,10 +6,19 @@
     </div>
     <div
       class="post-meta_line"
+      v-for="(objArr, idx) in [post.tags, post.categories]"
+      :key="idx ? 'categories' : 'tags'"
+      v-show ="objArr && index"
+    >
+      <img class="icon" svg-inline v-if="idx" src="../assets/folder-3-line.svg">
+      <img class="icon" svg-inline v-else src="../assets/price-tag-3-line.svg">
+      <span class="item" v-for="(item, idx2) in objArr" :key="idx2" v-html="item"></span>
+    </div>
+    <div
+      class="post-meta_line"
       v-for="(objArr, idx) in [post.tagsInfo, post.categoriesInfo]"
-      :key="idx"
-      v-show ="objArr"
-      @click.stop=""
+      :key="idx ? 'categoriesInfo' : 'tagsInfo'"
+      v-show ="objArr && !index"
     >
       <img class="icon" svg-inline v-if="idx" src="../assets/folder-3-line.svg">
       <img class="icon" svg-inline v-else src="../assets/price-tag-3-line.svg">
@@ -27,7 +36,7 @@
 <script>
 import formatDate from '../utils/formatDate'
 export default {
-  props: ['post'],
+  props: ['post', 'index'],
   methods: {
     formatDate(v) {
       return formatDate(v)
@@ -56,6 +65,9 @@ export default {
     width: 18px;
     display: inline-block;
     vertical-align: middle;
+  }
+  .item + .item {
+    margin-left: 10px;
   }
   @media screen and (max-width: 450px) {
     .icon {

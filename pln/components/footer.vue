@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <img class="footer-wave" :src="require('../assets/footer-wave.svg')">
+    <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1107 132"><path d="M1113.516 140H-6.502L-7 29.798c600.762-101.484 525.29 97.857 862.319 97.857 117.136 0 168.473-16.093 257.699-50.682 1.114-.432 1.28 20.577.498 63.027z" fill="#A8C885"/></svg>
     <div class="section">
       <img :src="require('../assets/doodle1.svg')" class="doodle d1">
       <img :src="require('../assets/doodle2.svg')" class="doodle d2">
@@ -27,7 +27,7 @@
     width: 100%;
     margin-top: 40px;
   }
-  img.footer-wave {
+  .footer-wave {
     display: block;
     width: 100%;
     margin: 0;
