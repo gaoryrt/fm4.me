@@ -19,10 +19,10 @@
         />
       </nav>
       <div v-if="page.posts">
-        <div v-for="post in page.posts"
+        <saber-link v-for="post in page.posts"
           :key="post.permalink"
           class="article"
-          @click="clickPost(post)"
+          :to="post.permalink"
         >
           <h2
             class="post-title"
@@ -32,7 +32,7 @@
             <Meta class="post-meta" :post="post"/>
             <div class="post-excerpt" v-html="post.excerpt"></div>
           </div>
-        </div>
+        </saber-link>
       </div>
       <div
         class="pagination"
@@ -84,10 +84,10 @@ export default {
     Meta
   },
   methods: {
-    clickPost(post) {
-      if (post.link) location.href = post.link
-      else this.$router.push(post.permalink)
-    }
+    // clickPost(post) {
+    //   if (post.link) location.href = post.link
+    //   else this.$router.push(post.permalink)
+    // }
   }
 }
 </script>
@@ -142,6 +142,19 @@ export default {
     .article {
       margin-left: 0;
       width: 100%;
+    }
+    .a.article,
+    a.article {
+      text-decoration: none;
+    }
+    .a.article::after,
+    a.article::after {
+      display: none;
+    }
+    a.article:hover,
+    .a.article:hover {
+      background: #0000;
+      color: #282828
     }
     .post-meta {
       width: 31.25%;

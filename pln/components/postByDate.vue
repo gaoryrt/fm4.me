@@ -19,13 +19,13 @@
         >
           <div class="post-time">{{formatDate(post.date)}}</div>
           <div class="title-wrapper">
-            <div
-              @click="clickPost(post)"
+            <saber-link
+              :to="post.permalink"
               class="post-title"
               :class="post.title ? '' : '_untitled'"
             >
               <h3>{{post.title || 'untitled'}}</h3>
-            </div>
+            </saber-link>
           </div>
         </div>
       </div>
@@ -78,10 +78,10 @@ export default {
     })
   },
   methods: {
-    clickPost(post) {
-      if (post.link) location.href = post.link
-      else this.$router.push(post.permalink)
-    },
+    // clickPost(post) {
+    //   if (post.link) location.href = post.link
+    //   else this.$router.push(post.permalink)
+    // },
     formatDate(str) {
       if (str) {
         const [_, m, d] = str.match(/-(\d+)-(\d+)/)
@@ -146,7 +146,7 @@ export default {
     white-space: normal;
   }
   .post-title::after {
-    background: transparent
+    display: none;
   }
   .post-time {
     line-height: 34px;
