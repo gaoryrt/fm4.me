@@ -48,10 +48,12 @@ export default {
     Meta
   },
   mounted() {
-    var d = document, s = d.createElement('script')
+    const d = document
+    const s = d.createElement('script')
     s.src = 'https://thejungle-1.disqus.com/embed.js'
     s.setAttribute('data-timestamp', +new Date())
-    (d.head || d.body).appendChild(s)
+    if (d.head) d.head.appendChild(s)
+    else d.body.appendChild(s)
   },
   methods: {
     jump
