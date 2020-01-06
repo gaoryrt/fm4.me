@@ -4,12 +4,11 @@
       <div class="line">
         <img :src="cover" class="left cover">
         <div class="ctrls right">
-          <div class="btn pausePlay" @click="pausePlay">
-            <svg v-if="playing" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 5h2v14H6V5zm10 0h2v14h-2V5z" fill="#444"/></svg>
-            <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.394 12L10 7.737v8.526L16.394 12zm2.982.416L8.777 19.482A.5.5 0 0 1 8 19.066V4.934a.5.5 0 0 1 .777-.416l10.599 7.066a.5.5 0 0 1 0 .832z" fill="#444"/></svg>
-          </div>
-          <div class="btn speed" @click="changeSpeed">
-            <svg :class="`_${curRate * 10}`" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="#000"/></svg>
+          <Pop class="btn pausePlay" @click.native="pausePlay">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16"><g fill="none" fill-rule="evenodd"><path d="M-1-4h24v24H-1z"/><path d="M8.394 8L2 3.737v8.526L8.394 8zm2.982.416L.777 15.482A.5.5 0 010 15.066V.934A.5.5 0 01.777.518l10.599 7.066a.5.5 0 010 .832zM14 1h2v14h-2V1zm6 0h2v14h-2V1z" fill-opacity=".8" fill="#2C3640" fill-rule="nonzero"/></g></svg>
+          </Pop>
+          <Pop class="btn speed" @click.native="changeSpeed">
+            <svg :class="`_${curRate * 10}`" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="rgba(44, 54, 64,.8)"/></svg>
             <div class="speeds">
               <div
                 class="speed-toggle"
@@ -18,13 +17,13 @@
                 v-html="speed"
               ></div>
             </div>
-          </div>
+          </Pop>
         </div>
       </div>
     </div>
     <div class="info-line">
       <div class="left title" v-html="title"></div>
-      <div class="time" ref="time">
+      <Pop class="time">
         <div class="cur" v-html="sec2str(currentTime)"/>
         <div class="res" v-html="duration ? sec2str(restTime) : '--:--'"/>
         <div
@@ -34,15 +33,17 @@
           :key="i"
           :style="`left:${i * 30000 / duration}%`"
         />
-        <div class="reticle" :style="`width:${currentPercent * 100}%`"></div>
-      </div>
+        <div class="reticle" :style="`left:${currentPercent * 100}%`"></div>
+      </Pop>
     </div>
   </div>
 </template>
 
 <script>
+import Pop from './poparea'
 export default {
   props: ['src', 'cover', 'title', 'artist'],
+  components: {Pop},
   data: () => ({
     speeds: [2, 1.4, 1, .7, .5],
     audio: null,
@@ -159,9 +160,11 @@ export default {
   width: 31.25%;
   height: 100%;
 }
+.cover {
+  border-radius: 8px;
+}
 .ctrls {
   display: flex;
-  background: #f0f0f0;
 }
 .right {
   position: relative;
@@ -173,9 +176,7 @@ export default {
   cursor: pointer;
   transition: all .2s
 }
-.btn:hover {
-  background: #fafafa;
-}
+.speed,
 .pausePlay {
   position: relative;
   width: 47.62%;
@@ -189,10 +190,7 @@ export default {
   left: calc(50% - 18px);
 }
 .speed {
-  position: relative;
-  margin-left: 2.38%;
-  height: 100%;
-  width: 50%;
+  margin-left: 4.76%;
 }
 .speed svg {
   height: 36px;
@@ -228,6 +226,8 @@ export default {
   justify-content: space-around;
   justify-content: space-evenly;
 }
+.cur,
+.res,
 .speed-toggle,
 .loading {
   font-size: 12px;
@@ -235,6 +235,7 @@ export default {
   font-family: monospace;
   padding: 0 1em;
   text-align: right;
+  line-height: 18px;
 }
 .info-line {
   position: relative;
@@ -255,14 +256,10 @@ export default {
   position: relative;
   margin-left: 3.125%;
   flex-grow: 1;
-  height: 18px;
+  padding: 22px 16px;
 }
 .cur,
 .res {
-  font-size: 12px;
-  color: #282828;
-  line-height: 18px;
-  font-family: monospace;
   position: absolute;
   bottom: 0;
   padding: 0 1em;
@@ -281,11 +278,12 @@ export default {
 }
 .reticle {
   position: absolute;
-  bottom: 0;
+  top: 10%;
   left: 0;
+  width: 4px;
+  border-radius: 4px;
   background: rgba(77, 150, 0, 0.38);
-  height: 18px;
-  mix-blend-mode: color-burn;
+  height: 80%;
 }
 ._10 {
   height: 14px;
@@ -304,15 +302,10 @@ export default {
     flex-direction: column;
   }
   .line-wrapper {
-    padding-top: initial;
-  }
-  .line,
-  .time {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    overflow: hidden;
+    padding-top: 20px;
   }
   .time {
+    margin-left: 0;
     margin-top: 20px;
   }
   .btn {
@@ -327,7 +320,8 @@ export default {
     /* display: none; */
   }
   .right {
-    padding-top: 50%;
+    margin-top: 20px;
+    padding-top: 47.62%;
     position: relative;
     margin-left: 0;
   }
