@@ -28,6 +28,7 @@ export default {
   border: 1px solid rgba(255,255,255,.5);
   transition: all .08s;
   background: #f7f7f7;
+  cursor: pointer;
 }
 .pop:after {
   content: '';

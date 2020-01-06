@@ -192,6 +192,6 @@ a:hover,
   .min-height {
     position: relative;
     min-height: calc(100vh - 140px);
-    padding-bottom: 40vw;
+    padding-bottom: calc(40vw + 20px);
   }
 }

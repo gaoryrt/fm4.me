@@ -6,35 +6,23 @@
         <div class="ctrls right">
           <Pop class="btn pausePlay" @click.native="pausePlay">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16"><g fill="none" fill-rule="evenodd"><path d="M-1-4h24v24H-1z"/><path d="M8.394 8L2 3.737v8.526L8.394 8zm2.982.416L.777 15.482A.5.5 0 010 15.066V.934A.5.5 0 01.777.518l10.599 7.066a.5.5 0 010 .832zM14 1h2v14h-2V1zm6 0h2v14h-2V1z" fill-opacity=".8" fill="#2C3640" fill-rule="nonzero"/></g></svg>
+            <!-- <div class="light">{{playing}},{{musicReady}}</div> -->
           </Pop>
-          <Pop class="btn speed" @click.native="changeSpeed">
-            <svg :class="`_${curRate * 10}`" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="rgba(44, 54, 64,.8)"/></svg>
-            <div class="speeds">
-              <div
-                class="speed-toggle"
-                v-for="speed in speeds"
-                :key="speed"
-                v-html="speed"
-              ></div>
+          <div class="infoCtnr">
+            <div class="glass">
+              <div v-if="duration" class="info">-{{sec2str(restTime)}}, {{(bufferedPercent * 100).toFixed(1) || 0}}%</div>
+              <div v-else class="info">loading</div>
             </div>
-          </Pop>
+            <div class="twoBtn">
+              <Pop @click.native="ff" class="anticlock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.828 7l2.536 2.536L6.95 10.95 2 6l4.95-4.95 1.414 1.414L5.828 5H13a8 8 0 1 1 0 16H4v-2h9a6 6 0 1 0 0-12H5.828z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
+              <Pop @click.native="bw" class="clock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.172 7H11a6 6 0 1 0 0 12h9v2h-9a8 8 0 1 1 0-16h7.172l-2.536-2.536L17.05 1.05 22 6l-4.95 4.95-1.414-1.414L18.172 7z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="info-line">
-      <div class="left title" v-html="title"></div>
-      <Pop class="time">
-        <div class="cur" v-html="sec2str(currentTime)"/>
-        <div class="res" v-html="duration ? sec2str(restTime) : '--:--'"/>
-        <div
-          class="scale"
-          :class="i % 2 ? '_5' : '_10'"
-          v-for="i in duration / 300 >> 0"
-          :key="i"
-          :style="`left:${i * 30000 / duration}%`"
-        />
-        <div class="reticle" :style="`left:${currentPercent * 100}%`"></div>
-      </Pop>
+      <div class="title" v-html="title"></div>
     </div>
   </div>
 </template>
@@ -55,34 +43,37 @@ export default {
     curRate: 1
   }),
   methods: {
+    ff() {
+      this.audio.currentTime -= 10
+    },
+    bw() {
+      this.audio.currentTime += 10
+    },
     pausePlay() {
       if (!this.musicReady) return
       this.playing = !this.playing
-    },
-    changeSpeed() {
-      if (!this.musicReady) return
-      const idx = (this.speeds.indexOf(this.curRate) + 4) % 5
-      this.curRate = this.speeds[idx]
-      this.audio.playbackRate = this.curRate
     },
     sec2str(num) {
       const min = num / 60 >> 0
       const sec = num % 60 >> 0
       return `${min}:${sec < 10 ? ('0' + sec) : sec}`
     },
+    onProg() {
+      if (this.audio.buffered.length > 0) {
+        this.duration = this.audio.duration
+        const buffered = this.audio.buffered.end(0)
+        this.bufferedTime = buffered > this.duration
+          ? this.duration
+          : buffered
+        if (this.bufferedTime > this.currentTime) this.musicReady = true
+      }
+    }
   },
   mounted() {
     this.audio = new Audio(this.src)
     this.audio.onprogress = () => {
       try {
-        if (this.audio.buffered.length > 0) {
-          this.duration = this.audio.duration
-          const buffered = this.audio.buffered.end(0)
-          this.bufferedTime = buffered > this.duration
-            ? this.duration
-            : buffered
-          if (this.bufferedTime > this.currentTime) this.musicReady = true
-        }
+        this.onProg()
       } catch (e) {}
     }
     setTimeout(() => {
@@ -172,16 +163,14 @@ export default {
   flex-grow: 1;
   height: 100%;
 }
-.btn {
-  cursor: pointer;
-  transition: all .2s
-}
-.speed,
+.infoCtnr,
 .pausePlay {
   position: relative;
   width: 47.62%;
   height: 100%;
 }
+.anticlock svg,
+.clock svg,
 .pausePlay svg {
   height: 36px;
   width: 36px;
@@ -189,46 +178,54 @@ export default {
   top: calc(50% - 18px);
   left: calc(50% - 18px);
 }
-.speed {
+.anticlock svg,
+.clock svg {
+  height: 30px;
+  width: 30px;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+}
+.infoCtnr {
   margin-left: 4.76%;
 }
-.speed svg {
-  height: 36px;
-  width: 36px;
-  position: absolute;
-  top: calc(50% - 18px);
-  left: calc(50% - 18px);
-  transition: all .2s;
-}
-.speed svg._5 {
-  transform: rotate(45deg)
-}
-.speed svg._7 {
-  transform: rotate(22.5deg)
-}
-.speed svg._10 {
-  transform: rotate(0)
-}
-.speed svg._14 {
-  transform: rotate(-22.5deg)
-}
-.speed svg._20 {
-  transform: rotate(-45deg)
-}
-
-.speeds {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 0;
+.glass {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 45%;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(16, 16, 16, .4),
+    -3px -3px 8px rgba(48, 48, 48, .2);
+}
+.info {
+  padding: 4px;
+  border-radius: 4px;
+  background: #1a1a1a;
+  font-family: monospace;
+  text-align: left;
+  flex-grow: 1;
+  color: #bbb;
+  box-shadow: inset 3px 3px 8px rgba(16, 16, 16, .8),
+    inset -3px -3px 8px rgba(48, 48, 48, .2);
+}
+.twoBtn {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10%;
+  height: 45%;
+}
+.anticlock,
+.clock {
+  position: relative;
+  width: 45%;
 }
 .cur,
 .res,
-.speed-toggle,
+/* .speed-toggle, */
 .loading {
   font-size: 12px;
   color: #aaa;
@@ -238,19 +235,14 @@ export default {
   line-height: 18px;
 }
 .info-line {
-  position: relative;
-  margin-top: 20px;
-  display: flex;
+  margin-top: 40px;
 }
 .title {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 24px;
+  line-height: 1.4;
   font-weight: 600;
   color: #000;
-  white-space: nowrap;
-  width: 31.25%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  width: 100%;
 }
 .time {
   position: relative;
@@ -296,11 +288,6 @@ export default {
     position: relative;
     flex-direction: column;
   }
-  .info-line {
-    position: relative;
-    margin-top: 20px;
-    flex-direction: column;
-  }
   .line-wrapper {
     padding-top: 20px;
   }
@@ -308,16 +295,16 @@ export default {
     margin-left: 0;
     margin-top: 20px;
   }
-  .btn {
+  .btn,
+  .infoCtnr {
     position: absolute;
     top: 0;
   }
+  .infoCtnr {
+    right: 0;
+  }
   .pausePlay {
     left: 0;
-  }
-  .speed {
-    right: 0;
-    /* display: none; */
   }
   .right {
     margin-top: 20px;
