@@ -161,7 +161,7 @@ a:hover,
 .min-height {
   position: relative;
   min-height: calc(100vh - 140px);
-  padding-bottom: 24vw;
+  padding-bottom: 200px;
 }
 #disqus_thread iframe {
   background: #0000 !important
@@ -213,7 +213,6 @@ a:hover,
   }
   .min-height {
     position: relative;
-    min-height: calc(100vh - 140px);
-    padding-bottom: calc(40vw + 20px);
+    padding-bottom: 175px;
   }
 }
