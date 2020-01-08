@@ -2,7 +2,7 @@
   <div id="player">
     <div class="line-wrapper">
       <div class="line">
-        <!-- <img :src="cover" class="left cover"> -->
+        <img :src="cover" class="left cover">
         <div class="ctrls right">
           <Pop class="btn pausePlay" @click.native="pausePlay">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16"><g fill="none" fill-rule="evenodd"><path d="M-1-4h24v24H-1z"/><path d="M8.394 8L2 3.737v8.526L8.394 8zm2.982.416L.777 15.482A.5.5 0 010 15.066V.934A.5.5 0 01.777.518l10.599 7.066a.5.5 0 010 .832zM14 1h2v14h-2V1zm6 0h2v14h-2V1z" fill-opacity=".8" fill="#2C3640" fill-rule="nonzero"/></g></svg>
@@ -21,9 +21,9 @@
         </div>
       </div>
     </div>
-    <!-- <div class="info-line">
+    <div class="info-line">
       <div class="title" v-html="title"></div>
-    </div> -->
+    </div>
   </div>
 </template>
 
