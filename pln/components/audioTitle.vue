@@ -10,8 +10,9 @@
           </Pop>
           <div class="infoCtnr">
             <div class="glass">
-              <div v-if="duration" class="info">REST {{sec2str(restTime)}}</div>
-              <div v-else class="info">loading</div>
+              <transition name="fade" mode="in-out">
+                <div class="info" :key="infoKey" v-html="info"></div>
+              </transition>
             </div>
             <div class="twoBtn">
               <Pop @click.native="ff" class="anticlock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.828 7l2.536 2.536L6.95 10.95 2 6l4.95-4.95 1.414 1.414L5.828 5H13a8 8 0 1 1 0 16H4v-2h9a6 6 0 1 0 0-12H5.828z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
@@ -40,14 +41,23 @@ export default {
     currentTime: 0,
     bufferedTime: 0,
     duration: 0,
-    curRate: 1
+    curRate: 1,
+    infoKey: 0,
+    otherInfo: false,
+    timeout: null
   }),
   methods: {
     ff() {
       this.audio.currentTime -= 10
+      this.otherInfo = '-10 sec'
+      if (this.timeout) clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => this.otherInfo = false, 1000)
     },
     bw() {
       this.audio.currentTime += 10
+      this.otherInfo = '+10 sec'
+      if (this.timeout) clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => this.otherInfo = false, 1000)
     },
     pausePlay() {
       if (!this.musicReady) return
@@ -113,21 +123,31 @@ export default {
       return this.bufferedTime / this.duration
     },
     currentPercent() {
-      return this.currentTime / this.duration
+      return this.duration
+        ? (this.currentTime * 100 / this.duration).toFixed(1) + '% '
+        : ''
+    },
+    info() {
+      if (this.musicReady) {
+        if (this.otherInfo) return this.otherInfo
+        else if (this.playing) return this.sec2str(this.currentTime) + ' playing'
+        else if (this.currentTime === 0) return 'ready to play'
+        else return this.currentPercent + 'paused'
+      } else return 'loading'
     },
     lightStyle() {
       if (this.musicReady) {
-        if (this.playing) {
-          return '_playing'
-        } else {
-          return '_paused'
-        }
-      } else {
-        return '_unready'
-      }
+        if (this.otherInfo) return '_seeking'
+        else if (this.playing) return '_playing'
+        else if (this.currentTime === 0) return '_ready'
+        else return '_paused'
+      } else return '_loading'
     }
   },
   watch: {
+    info() {
+      this.infoKey += 1
+    },
     playing(curStatus) {
       this.$nextTick(() => {
         curStatus ? this.audio.play() : this.audio.pause()
@@ -189,6 +209,53 @@ export default {
   top: calc(50% - 18px);
   left: calc(50% - 18px);
 }
+.light {
+  position: relative;
+  top: 8px;
+  left: 8px;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  transition: all .2s;
+}
+._seeking {
+  background: #FAEF00;
+  box-shadow: 0 0 8px #FAEF00,
+  inset 0 0 3px rgba(16, 16, 16, .2);
+  border: .5px solid rgb(245, 233, 0);
+  border-top-color: rgb(236, 225, 0);
+  border-left-color: rgb(236, 225, 0);
+  animation: blink .5s infinite;
+}
+._playing,
+._ready {
+  background: #09FA72;
+  box-shadow: 0 0 8px #09FA72,
+  inset 0 0 3px rgba(16, 16, 16, .2);
+  border: .5px solid rgb(9, 240, 109);
+  border-top-color: rgb(12, 233, 107);
+  border-left-color: rgb(12, 233, 107);
+}
+._playing {
+  /* animation: blink 1s infinite; */
+}
+._paused,
+._loading {
+  background: #F94645;
+  box-shadow: 0 0 8px #F94645,
+  inset 0 0 3px rgba(16, 16, 16, .2);
+  border: .5px solid rgb(241, 64, 64);
+  border-top-color: rgb(236, 61, 61);
+  border-left-color: rgb(236, 61, 61);
+}
+@keyframes blink {
+  75% {
+    background: #f0f0f0;
+    box-shadow: 0 0 8px #fff,
+    inset 0 0 3px rgba(16, 16, 16, .2);
+    border: 0;
+  }
+}
 .anticlock svg,
 .clock svg {
   height: 30px;
@@ -218,11 +285,14 @@ export default {
   font-size: 24px;
   line-height: 24px;
   text-align: left;
-  flex-grow: 1;
+  width: 115px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   color: #57CDD0;
   text-shadow: 0 0 .1em #57CDD0;
-  transform: translate3d(0, 2px, 0);
-  -webkit-box-reflect: below -7px linear-gradient(transparent, transparent 58%, #222);
+  transform: translate3d(0, 2px, 0) skewX(-5deg);
+  -webkit-box-reflect: below -7px linear-gradient(transparent, transparent 57%, #222);
 }
 .twoBtn {
   position: relative;
