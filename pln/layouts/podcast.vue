@@ -7,7 +7,7 @@
         :cover="page.background"
         :artist="page.tags"
       />
-      <div class="pln-meta">
+      <!-- <div class="pln-meta">
         <Meta :post="page"/>
       </div>
       <div class="content">
@@ -22,9 +22,9 @@
         <div class="main-content">
           <slot name="default"/>
         </div>
-      </div>
+      </div> -->
     </div>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 

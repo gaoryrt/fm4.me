@@ -2,15 +2,15 @@
   <div id="player">
     <div class="line-wrapper">
       <div class="line">
-        <img :src="cover" class="left cover">
+        <!-- <img :src="cover" class="left cover"> -->
         <div class="ctrls right">
           <Pop class="btn pausePlay" @click.native="pausePlay">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16"><g fill="none" fill-rule="evenodd"><path d="M-1-4h24v24H-1z"/><path d="M8.394 8L2 3.737v8.526L8.394 8zm2.982.416L.777 15.482A.5.5 0 010 15.066V.934A.5.5 0 01.777.518l10.599 7.066a.5.5 0 010 .832zM14 1h2v14h-2V1zm6 0h2v14h-2V1z" fill-opacity=".8" fill="#2C3640" fill-rule="nonzero"/></g></svg>
-            <!-- <div class="light">{{playing}},{{musicReady}}</div> -->
+            <div class="light" :class="lightStyle"></div>
           </Pop>
           <div class="infoCtnr">
             <div class="glass">
-              <div v-if="duration" class="info">-{{sec2str(restTime)}}, {{(bufferedPercent * 100).toFixed(1) || 0}}%</div>
+              <div v-if="duration" class="info">REST {{sec2str(restTime)}}</div>
               <div v-else class="info">loading</div>
             </div>
             <div class="twoBtn">
@@ -21,9 +21,9 @@
         </div>
       </div>
     </div>
-    <div class="info-line">
+    <!-- <div class="info-line">
       <div class="title" v-html="title"></div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -114,6 +114,17 @@ export default {
     },
     currentPercent() {
       return this.currentTime / this.duration
+    },
+    lightStyle() {
+      if (this.musicReady) {
+        if (this.playing) {
+          return '_playing'
+        } else {
+          return '_paused'
+        }
+      } else {
+        return '_unready'
+      }
     }
   },
   watch: {
@@ -194,21 +205,24 @@ export default {
   align-items: center;
   padding: 20px;
   height: 45%;
-  background: #222;
+  background: #000604;
   border-radius: 8px;
   box-shadow: 3px 3px 8px rgba(16, 16, 16, .4),
     -3px -3px 8px rgba(48, 48, 48, .2);
+  border: #283039 solid 3px;
+  border-left-color: #3C4855;
+  border-top-color: #37434F;
 }
 .info {
-  padding: 4px;
-  border-radius: 4px;
-  background: #1a1a1a;
-  font-family: monospace;
+  font-family: thinpixel;
+  font-size: 24px;
+  line-height: 24px;
   text-align: left;
   flex-grow: 1;
-  color: #bbb;
-  box-shadow: inset 3px 3px 8px rgba(16, 16, 16, .8),
-    inset -3px -3px 8px rgba(48, 48, 48, .2);
+  color: #57CDD0;
+  text-shadow: 0 0 .1em #57CDD0;
+  transform: translate3d(0, 2px, 0);
+  -webkit-box-reflect: below -7px linear-gradient(transparent, transparent 58%, #222);
 }
 .twoBtn {
   position: relative;
