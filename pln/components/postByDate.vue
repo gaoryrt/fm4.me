@@ -162,7 +162,7 @@ a.post-title:hover,
     display: none;
   }
   .post-time {
-    line-height: 34px;
+    line-height: 39px;
   }
 }
 </style>

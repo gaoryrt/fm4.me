@@ -110,7 +110,7 @@ export default {
     position: relative;
     white-space: nowrap;
     width: fit-content;
-    height: 96px;
+    height: 60px;
     transition: color .2s;
   }
   .article:hover .post-title {
