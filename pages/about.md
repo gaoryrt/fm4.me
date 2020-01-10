@@ -12,4 +12,6 @@ Welcome to the jungle 正是在欢迎你收听本档节目。也是在欢迎你�
 
 The Jungle 主要使用音频播客为载体，不定期更新图片与文字版本；主要是两个主播在录，不定期邀请朋友同录。
 
-您可以通过 [hi@jungle.fm](mailto://hi@jungle.fm) 联系我们，喜欢本节目也可以 [在这里捐助](/donate) 支持我们。
+本站使用 [Saber](https://saber.land/) 构建，托管于 [Github](https://github.com/gaoryrt/fm4.me)，使用 [Netlify](https://www.netlify.com/) 持续部署。没有他们就没有这个站，十分感谢。
+
+您可以通过 [hi@jungle.fm](mailto://hi@jungle.fm) 联系我们，或者在本页面下方的留言板内留言（如果您能够看到的话），喜欢本节目也可以 [在这里捐助](/donate) 支持我们。
