@@ -15,8 +15,8 @@
               </transition>
             </div>
             <div class="twoBtn">
-              <Pop @click.native="ff" class="anticlock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.828 7l2.536 2.536L6.95 10.95 2 6l4.95-4.95 1.414 1.414L5.828 5H13a8 8 0 1 1 0 16H4v-2h9a6 6 0 1 0 0-12H5.828z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
-              <Pop @click.native="bw" class="clock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.172 7H11a6 6 0 1 0 0 12h9v2h-9a8 8 0 1 1 0-16h7.172l-2.536-2.536L17.05 1.05 22 6l-4.95 4.95-1.414-1.414L18.172 7z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
+              <Pop @click.native="ff" class="anticlock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.667l9.223-6.149a.5.5 0 0 1 .777.416v14.132a.5.5 0 0 1-.777.416L12 13.333v5.733a.5.5 0 0 1-.777.416L.624 12.416a.5.5 0 0 1 0-.832l10.599-7.066a.5.5 0 0 1 .777.416v5.733zm-2 5.596V7.737L3.606 12 10 16.263zm10 0V7.737L13.606 12 20 16.263z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
+              <Pop @click.native="bw" class="clock"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 13.333l-9.223 6.149A.5.5 0 0 1 2 19.066V4.934a.5.5 0 0 1 .777-.416L12 10.667V4.934a.5.5 0 0 1 .777-.416l10.599 7.066a.5.5 0 0 1 0 .832l-10.599 7.066a.5.5 0 0 1-.777-.416v-5.733zM10.394 12L4 7.737v8.526L10.394 12zM14 7.737v8.526L20.394 12 14 7.737z" fill="#2C3640" fill-opacity=".8"/></svg></Pop>
             </div>
           </div>
         </div>
@@ -235,9 +235,6 @@ export default {
   border: .5px solid rgb(9, 240, 109);
   border-top-color: rgb(12, 233, 107);
   border-left-color: rgb(12, 233, 107);
-}
-._playing {
-  /* animation: blink 1s infinite; */
 }
 ._paused,
 ._loading {
