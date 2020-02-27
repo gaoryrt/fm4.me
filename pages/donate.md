@@ -17,5 +17,5 @@ layout: article
 特别感谢这些朋友：
 > 祝这对用我的钱喂我狗粮的 couple 的 jungle fm 越办越好 —— [mwo](https://mwo.sh)
 
-> 广告占位。本人羞愧难当地在此征婚 —— [动物凶猛NBOTS](https://vaughn.li/)
+> 祝jungle fm越办越好 —— [动物凶猛NBOTS](https://vaughn.li/)
 
