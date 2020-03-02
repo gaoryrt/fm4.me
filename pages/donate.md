@@ -19,3 +19,4 @@ layout: article
 
 > 祝jungle fm越办越好 —— [动物凶猛NBOTS](https://vaughn.li/)
 
+> 祝jungle fm 越办越好( •̀ ω •́ )y —— [齐德龙和李不理](https://weibo.com/sunnywatermelon)
