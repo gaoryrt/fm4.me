@@ -6,7 +6,6 @@ tags:
 - 高日天
 layout: article
 ---
-《忆返班》
 
 返班好，  
 工位旧曾谙；  
