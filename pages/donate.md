@@ -15,8 +15,8 @@ layout: article
 ![](/assets/donate.jpg)
 
 特别感谢这些朋友：
-> 祝这对用我的钱喂我狗粮的 couple 的 jungle fm 越办越好 —— [mwo](https://mwo.sh)
+> 祝这对用我的钱喂我狗粮的 couple 的 jungle fm 越办越好 —— [Blair Noctis](https://bn.ax)
 
-> 祝jungle fm越办越好 —— [动物凶猛NBOTS](https://vaughn.li/)
+> 祝 jungle fm 越办越好 —— [动物凶猛NBOTS](https://vaughn.li/)
 
-> 祝jungle fm 越办越好( •̀ ω •́ )y —— [齐德龙和李不理](https://weibo.com/sunnywatermelon)
+> 祝 jungle fm 越办越好 ( •̀ ω •́ )y —— [齐德龙和李不理](https://weibo.com/sunnywatermelon)
