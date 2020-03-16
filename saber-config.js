@@ -9,7 +9,8 @@ module.exports = {
     title: 'theJungle',
     description: '两个年轻人，用声音记录思想和生活',
     author: 'Dannie & Gaoryrt',
-    keywords: ['podcast', 'indie', 'blog', 'thejungle', 'the jungle']
+    keywords: ['podcast', 'indie', 'blog', 'thejungle', 'the jungle'],
+    email: 'hi@jungle.fm'
   },
   themeConfig: {
     nav: [
@@ -36,6 +37,13 @@ module.exports = {
     },
     {
       resolve: 'saber-plugin-sitemap'
+    },
+    {
+      resolve: 'saber-plugin-feed',
+      options: {
+        atomFeed: true,
+        rss2Feed: true
+      }
     }
   ],
   build: {
