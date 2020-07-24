@@ -27,7 +27,7 @@ module.exports = {
     itunes: {
       image: '/assets/cover.jpg',
       category: 'Society &amp; Culture',
-      explicit: 'false'
+      explicit: 'true'
     }
   },
   themeConfig: {
