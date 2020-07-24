@@ -23,7 +23,7 @@ module.exports = {
     author: 'Dannie & Gaoryrt',
     keywords: ['podcast', 'indie', 'blog', 'thejungle', 'the jungle'],
     email: 'hi@jungle.fm',
-    language: 'zh',
+    language: 'zh-Hans',
     itunes: {
       image: '/assets/cover.jpg',
       category: 'Society &amp; Culture',
