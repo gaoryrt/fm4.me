@@ -2431,10 +2431,10 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-feed@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.npm.taobao.org/feed/download/feed-4.1.0.tgz#58f1c9cc2b44715d14ac59234e1bf20c5d757aa7"
-  integrity sha1-WPHJzCtEcV0UrFkjThvyDF11eqc=
+feed@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.npmjs.org/feed/-/feed-4.2.1.tgz#b246ef891051c7dbf088ca203341d9fb0444baee"
+  integrity sha512-l28KKcK1J/u3iq5dRDmmoB2p7dtBfACC2NqJh4dI2kFptxH0asfjmOfcxqh5Sv8suAlVa73gZJ4REY5RrafVvg==
   dependencies:
     xml-js "^1.6.11"
 
@@ -5016,12 +5016,11 @@ saber-markdown@^0.1.1:
   resolved "https://registry.npmjs.org/saber-markdown/-/saber-markdown-0.1.1.tgz#13e9f94dec1bd4b5719a1e4b1dafc5496478c2ed"
   integrity sha512-pekUhzaA8dQHp1XO3uBKzeVXgcw2aLrobZ7gwBSm+vH0caG07UZimr7pW1eQJotagq8qCDKfk3vcDwDgD4RhsA==
 
-saber-plugin-feed@^0.4.3:
+"saber-plugin-feed@https://github.com/gaoryrt/saber-plugin-feed.git":
   version "0.4.3"
-  resolved "https://registry.npm.taobao.org/saber-plugin-feed/download/saber-plugin-feed-0.4.3.tgz#fda86c3885c7f1f8f283b631534c42892c8b166e"
-  integrity sha1-/ahsOIXH8fjyg7YxU0xCiSyLFm4=
+  resolved "https://github.com/gaoryrt/saber-plugin-feed.git#a98323eb286cea99c5a8160f6030a7416707bced"
   dependencies:
-    feed "^4.0.0"
+    feed "^4.2.1"
 
 saber-plugin-query-posts@^0.4.2:
   version "0.4.2"

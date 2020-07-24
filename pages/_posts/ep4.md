@@ -5,7 +5,10 @@ tags:
 - 王丹妮
 - 高日天
 layout: podcast
-radio: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 大风吹 ｜ The Jungle.mp3
+enclosure:
+  url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 大风吹 ｜ The Jungle.mp3
+  length: 12067988
+  type: audio/mpeg
 background: /assets/cover.jpg
 ---
 为什么会有「巅峰」一说？  

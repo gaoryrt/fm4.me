@@ -3,7 +3,7 @@
     <div class="center">
       <Title
         :title="page.title || 'untitled'"
-        :src="page.radio"
+        :src="page.enclosure.url"
         :cover="page.background"
         :artist="page.tags"
       />
