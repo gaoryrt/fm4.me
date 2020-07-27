@@ -26,7 +26,20 @@ The Jungle 主要使用音频播客为载体，不定期更新图片与文字版
     language: 'zh-Hans',
     itunes: {
       image: '/assets/cover1400.jpg',
-      category: 'Society &amp; Culture',
+      category: [
+        {
+          _attr: {
+            text: 'Society &amp; Culture'
+          }
+        },
+        {
+          'itunes:category': {
+            _attr: {
+              text: 'Personal Journals'
+            }
+          }
+        }
+      ],
       explicit: 'true'
     }
   },
