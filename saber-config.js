@@ -29,7 +29,7 @@ The Jungle 主要使用音频播客为载体，不定期更新图片与文字版
       category: [
         {
           _attr: {
-            text: 'Society &amp; Culture'
+            text: 'Society & Culture'
           }
         }
       ],
