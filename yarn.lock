@@ -5038,7 +5038,7 @@ saber-markdown@^0.1.1:
 
 "saber-plugin-feed@https://github.com/gaoryrt/saber-plugin-feed.git":
   version "0.4.3"
-  resolved "https://github.com/gaoryrt/saber-plugin-feed.git#e9180d49129fd409ce72001d92671ee29444eb11"
+  resolved "https://github.com/gaoryrt/saber-plugin-feed.git#7fdcf800667265c896c0992785aecd88e7ed2683"
   dependencies:
     feed "^4.2.1"
     rss "^1.2.2"
