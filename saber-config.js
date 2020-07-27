@@ -25,7 +25,7 @@ module.exports = {
     email: 'hi@jungle.fm',
     language: 'zh-Hans',
     itunes: {
-      image: '/assets/cover.jpg',
+      image: '/assets/cover1400.jpg',
       category: 'Society &amp; Culture',
       explicit: 'true'
     }
