@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 虽然活不到100年后但我们还想谈谈100年后的世界 ｜ The Jungle.mp3
   length: 9842982
   type: audio/mpeg
+  duration: 1230
 background: /assets/cover.jpg
 ---
 人工智能的基础是啥  

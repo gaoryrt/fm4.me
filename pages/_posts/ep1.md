@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - Untitled ｜ The Jungle.mp3
   length: 55302940
   type: audio/mpeg
+  duration: 2304
 background: /assets/cover.jpg
 ---
 

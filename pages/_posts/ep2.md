@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 尿性 · 家庭 ｜ The Jungle.mp3
   length: 69415750
   type: audio/mpeg
+  duration: 1735
 background: /assets/cover.jpg
 ---
 

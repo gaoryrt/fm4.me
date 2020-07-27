@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 国庆特别节目（上）｜ The Jungle.mp3
   length: 108540909
   type: audio/mpeg
+  duration: 2713
 background: /assets/cover.jpg
 ---
 自驾新疆初印象  

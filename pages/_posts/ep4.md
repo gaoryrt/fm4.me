@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 大风吹 ｜ The Jungle.mp3
   length: 12067988
   type: audio/mpeg
+  duration: 502
 background: /assets/cover.jpg
 ---
 为什么会有「巅峰」一说？  

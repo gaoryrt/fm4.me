@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - Let‘s play ｜ The Jungle.mp3
   length: 29212883
   type: audio/mpeg
+  duration: 1217
 background: /assets/cover.jpg
 ---
 强推塞尔达  

@@ -11,6 +11,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 日常彩蛋1 ｜ The Jungle.mp3
   length: 695319
   type: audio/mpeg
+  duration: 86
 background: /assets/cover.jpg
 ---
 男主播唱歌 & 川普教学

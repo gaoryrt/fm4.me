@@ -8,6 +8,7 @@ layout: podcast
 enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - 泸沽湖闲聊｜The Jungle.mp3
   length: 8813237
+  duration: 881
   type: audio/mpeg
 background: /assets/cover.jpg
 ---

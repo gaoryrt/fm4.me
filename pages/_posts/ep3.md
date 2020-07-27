@@ -9,6 +9,7 @@ enclosure:
   url: https://jfm.oss-cn-chengdu.aliyuncs.com/wdannii - Be Humble ｜ The Jungle.mp3
   length: 74281004
   type: audio/mpeg
+  duration: 3095
 background: /assets/cover.jpg
 ---
 
